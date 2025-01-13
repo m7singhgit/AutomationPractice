@@ -15,14 +15,14 @@ public class HomePage extends CoreFunctions {
 	private final By Obj_Women_Link = new By.ByXPath("//a[@title='Women']");
 	private final By Obj_Dresses_Link = new By.ByXPath("//a[@title='Dresses']");
 	private final By Obj_Menu_Links = new By.ByXPath("//ul[@class='sf-menu clearfix menu-content sf-js-enabled sf-arrows']/li/a");
-	private final By Obj_Signin_Link = new By.ByXPath("//a[@class='login']");
+	private final By Obj_Signin_Link = new By.ByXPath("//a[@href='/documentation/test_practices/testing_types/']");
 
 	
 	
 	public WebDriver openBrowser(String MyBrowser) throws Exception {
 		WebDriver driverThread = initializeWebDriver(MyBrowser);
-		navigateToURL("http://automationpractice.com", driverThread);
-		waitForPageTitle("My Store", driverThread);
+		navigateToURL("https://www.selenium.dev/documentation/test_practices/", driverThread);
+		waitForPageTitle("Test Practices | Selenium", driverThread);
 		return driverThread;		
 	}
 	
@@ -30,8 +30,9 @@ public class HomePage extends CoreFunctions {
 		navigatetoTab(TabName, Obj_Menu_Links, driverThread);		
 		}
 	
-	public void navigatetoSignin(WebDriver driverThread) {
-		Click(Obj_Signin_Link, driverThread);		
+	public void navigatetoTypesOfTesting(WebDriver driverThread) throws InterruptedException {
+		Click(Obj_Signin_Link, driverThread);
+		driverThread.wait(100);
 		}
 		
 	

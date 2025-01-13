@@ -1,5 +1,6 @@
 package Utilities;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -17,8 +18,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.TestException;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
+
 public class CoreFunctions extends baseClass{
-	
+	Duration duration = Duration.ofSeconds(10);
 	//Navigate to any given url
 	public void navigateToURL(String url, WebDriver driverThread) {
 		driverThread.navigate().to(url);
@@ -28,7 +31,7 @@ public class CoreFunctions extends baseClass{
 
 	//wait for page title
 	public void waitForPageTitle(String PageTitle, WebDriver driverThread) {
-		WebDriverWait wait = new WebDriverWait(driverThread,10);
+		WebDriverWait wait = new WebDriverWait(driverThread,duration);
 		try {
 		wait.until(ExpectedConditions.titleContains(PageTitle));
 		String ActualPageTitle = driverThread.getTitle();
@@ -46,14 +49,14 @@ public class CoreFunctions extends baseClass{
 	
 	//Fluentwait
 	public void fluentWait(WebElement element, WebDriver driverThread) {
-		WebDriverWait wait = new WebDriverWait(driverThread,10);
+		WebDriverWait wait = new WebDriverWait(driverThread,duration);
 		wait.ignoring(StaleElementReferenceException.class).until(ExpectedConditions.elementToBeClickable(element));
 
 	}
 	
 	//Fluentwait
 		public void fluentWait(By by, WebDriver driverThread) {
-			WebDriverWait wait = new WebDriverWait(driverThread,10);
+			WebDriverWait wait = new WebDriverWait(driverThread,duration);
 			wait.ignoring(StaleElementReferenceException.class).until(ExpectedConditions.elementToBeClickable(by));
 
 		}

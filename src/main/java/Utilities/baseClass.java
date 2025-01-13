@@ -15,8 +15,8 @@ public class baseClass {
 	public WebDriver initializeWebDriver(String MyBrowser) throws Exception {
 		WebDriver driverThread = null;
 		
-		Runtime.getRuntime().exec("taskkill /F /IM chrome.exe");
-		Runtime.getRuntime().exec("taskkill /F /IM firefox.exe");
+	//	Runtime.getRuntime().exec("taskkill /F /IM chrome.exe");
+	//	Runtime.getRuntime().exec("taskkill /F /IM firefox.exe");
 
 		//MyBrowser = System.getProperty("Testbrowser");
 		
